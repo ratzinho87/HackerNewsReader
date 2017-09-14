@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--New & Top Stories-->
+        <!--News Reader-->
         <scene sceneID="alP-qw-nTT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y5B-St-eIX" sceneMemberID="viewController">
+                <navigationController title="News Reader" automaticallyAdjustsScrollViewInsets="NO" id="Y5B-St-eIX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="New &amp; Top Stories" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5qz-Vr-uRp">
@@ -193,6 +193,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kr8-go-3Sr"/>
+        <segue reference="wbo-QX-yNJ"/>
     </inferredMetricsTieBreakers>
 </document>

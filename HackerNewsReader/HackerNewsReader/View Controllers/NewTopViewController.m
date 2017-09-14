@@ -21,13 +21,10 @@
 @implementation NewTopViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self loadData];
-    
+    [super viewDidLoad];    
     [self.tableView registerNib:[UINib nibWithNibName:@"StoryTableViewCell" bundle:nil] forCellReuseIdentifier:[StoryTableViewCell reuseIdentifier]];
     
-    self.clearsSelectionOnViewWillAppear = YES;
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,8 +90,23 @@
     return cell;
 }
 
-//-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
-//}
+-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewRowAction *saveAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
+                                                                          title:@"Save"
+                                                                        handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+                                                                            NewsStory *story = self.stories[indexPath.section][indexPath.row];
+                                                                            story.isSaved = YES;
+                                                                            // TODO: save
+                                                                            [self.tableView reloadRowsAtIndexPaths:[NSArray<NSIndexPath *> arrayWithObject:indexPath]
+                                                                                                  withRowAnimation:YES];
+    }];
+    
+    return [NSArray<UITableViewRowAction *> arrayWithObject:saveAction];
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // This method must be implemented in order for the row swipe to work
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NewsStory *story = self.stories[indexPath.section][indexPath.row];
