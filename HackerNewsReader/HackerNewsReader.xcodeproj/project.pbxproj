@@ -15,10 +15,12 @@
 		5BF0D3781F6A6AEC00698821 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF0D3751F6A6AEC00698821 /* Main.storyboard */; };
 		5BF0D37D1F6A6B0200698821 /* NewTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D37A1F6A6B0200698821 /* NewTopViewController.m */; };
 		5BF0D37E1F6A6B0200698821 /* SavedForLaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D37C1F6A6B0200698821 /* SavedForLaterViewController.m */; };
-		5BF0D3811F6A6D1F00698821 /* NewsStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3801F6A6D1F00698821 /* NewsStory.m */; };
 		5BF0D3841F6A6E3C00698821 /* NewsStoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3831F6A6E3C00698821 /* NewsStoriesTableViewController.m */; };
 		5BF0D3871F6A78D500698821 /* NewsStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3861F6A78D500698821 /* NewsStoryViewController.m */; };
 		5BF0D38A1F6A811C00698821 /* NewsStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3891F6A811C00698821 /* NewsStoryTableViewCell.m */; };
+		5BF0D3901F6AC0F900698821 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D38E1F6AC0F900698821 /* Model.xcdatamodeld */; };
+		5BF0D3951F6AC38400698821 /* NewsStory+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3921F6AC38400698821 /* NewsStory+CoreDataClass.m */; };
+		5BF0D3961F6AC38400698821 /* NewsStory+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3941F6AC38400698821 /* NewsStory+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,14 +49,17 @@
 		5BF0D37A1F6A6B0200698821 /* NewTopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewTopViewController.m; path = "View Controllers/NewTopViewController.m"; sourceTree = "<group>"; };
 		5BF0D37B1F6A6B0200698821 /* SavedForLaterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavedForLaterViewController.h; path = "View Controllers/SavedForLaterViewController.h"; sourceTree = "<group>"; };
 		5BF0D37C1F6A6B0200698821 /* SavedForLaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavedForLaterViewController.m; path = "View Controllers/SavedForLaterViewController.m"; sourceTree = "<group>"; };
-		5BF0D37F1F6A6D1F00698821 /* NewsStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsStory.h; path = Models/NewsStory.h; sourceTree = "<group>"; };
-		5BF0D3801F6A6D1F00698821 /* NewsStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsStory.m; path = Models/NewsStory.m; sourceTree = "<group>"; };
 		5BF0D3821F6A6E3C00698821 /* NewsStoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsStoriesTableViewController.h; path = "View Controllers/NewsStoriesTableViewController.h"; sourceTree = "<group>"; };
 		5BF0D3831F6A6E3C00698821 /* NewsStoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsStoriesTableViewController.m; path = "View Controllers/NewsStoriesTableViewController.m"; sourceTree = "<group>"; };
 		5BF0D3851F6A78D500698821 /* NewsStoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsStoryViewController.h; path = "View Controllers/NewsStoryViewController.h"; sourceTree = "<group>"; };
 		5BF0D3861F6A78D500698821 /* NewsStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsStoryViewController.m; path = "View Controllers/NewsStoryViewController.m"; sourceTree = "<group>"; };
 		5BF0D3881F6A811C00698821 /* NewsStoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsStoryTableViewCell.h; path = Views/NewsStoryTableViewCell.h; sourceTree = "<group>"; };
 		5BF0D3891F6A811C00698821 /* NewsStoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsStoryTableViewCell.m; path = Views/NewsStoryTableViewCell.m; sourceTree = "<group>"; };
+		5BF0D38F1F6AC0F900698821 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		5BF0D3911F6AC38400698821 /* NewsStory+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NewsStory+CoreDataClass.h"; path = "Models/NewsStory+CoreDataClass.h"; sourceTree = "<group>"; };
+		5BF0D3921F6AC38400698821 /* NewsStory+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NewsStory+CoreDataClass.m"; path = "Models/NewsStory+CoreDataClass.m"; sourceTree = "<group>"; };
+		5BF0D3931F6AC38400698821 /* NewsStory+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NewsStory+CoreDataProperties.h"; path = "Models/NewsStory+CoreDataProperties.h"; sourceTree = "<group>"; };
+		5BF0D3941F6AC38400698821 /* NewsStory+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NewsStory+CoreDataProperties.m"; path = "Models/NewsStory+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +101,8 @@
 		5BF0D3441F6A60F400698821 /* HackerNewsReader */ = {
 			isa = PBXGroup;
 			children = (
-				5BF0D3701F6A6A0100698821 /* Models */,
 				5BF0D36F1F6A69D900698821 /* Storyboards */,
+				5BF0D3701F6A6A0100698821 /* Models */,
 				5BF0D36E1F6A69CB00698821 /* Views */,
 				5BF0D36D1F6A69A900698821 /* View Controllers */,
 				5BF0D3481F6A60F400698821 /* AppDelegate.h */,
@@ -162,8 +167,11 @@
 		5BF0D3701F6A6A0100698821 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5BF0D37F1F6A6D1F00698821 /* NewsStory.h */,
-				5BF0D3801F6A6D1F00698821 /* NewsStory.m */,
+				5BF0D38E1F6AC0F900698821 /* Model.xcdatamodeld */,
+				5BF0D3911F6AC38400698821 /* NewsStory+CoreDataClass.h */,
+				5BF0D3921F6AC38400698821 /* NewsStory+CoreDataClass.m */,
+				5BF0D3931F6AC38400698821 /* NewsStory+CoreDataProperties.h */,
+				5BF0D3941F6AC38400698821 /* NewsStory+CoreDataProperties.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -273,11 +281,13 @@
 				5BF0D38A1F6A811C00698821 /* NewsStoryTableViewCell.m in Sources */,
 				5BF0D37E1F6A6B0200698821 /* SavedForLaterViewController.m in Sources */,
 				5BF0D34A1F6A60F400698821 /* AppDelegate.m in Sources */,
+				5BF0D3961F6AC38400698821 /* NewsStory+CoreDataProperties.m in Sources */,
 				5BF0D3841F6A6E3C00698821 /* NewsStoriesTableViewController.m in Sources */,
 				5BF0D3871F6A78D500698821 /* NewsStoryViewController.m in Sources */,
+				5BF0D3901F6AC0F900698821 /* Model.xcdatamodeld in Sources */,
 				5BF0D37D1F6A6B0200698821 /* NewTopViewController.m in Sources */,
 				5BF0D3471F6A60F400698821 /* main.m in Sources */,
-				5BF0D3811F6A6D1F00698821 /* NewsStory.m in Sources */,
+				5BF0D3951F6AC38400698821 /* NewsStory+CoreDataClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +496,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5BF0D38E1F6AC0F900698821 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5BF0D38F1F6AC0F900698821 /* Model.xcdatamodel */,
+			);
+			currentVersion = 5BF0D38F1F6AC0F900698821 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = Models/Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5BF0D33A1F6A60F400698821 /* Project object */;
 }
