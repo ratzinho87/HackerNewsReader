@@ -24,30 +24,41 @@
 }
 
 -(void)fetchTopStories:(void (^)(NSArray<HackerNewsStory *>* _Nullable, NSError * _Nullable))completionHandler {
-    [self fetchStoryListForUri:@"topstories.json" completionHandler:completionHandler];
+    [self fetchStoryListForUri:@"topstories.json" limit:15 completionHandler:completionHandler];
 }
 
 -(void)fetchNewStories:(void (^)(NSArray<HackerNewsStory *>* _Nullable, NSError * _Nullable))completionHandler {
-    [self fetchStoryListForUri:@"newstories.json" completionHandler:completionHandler];
+    [self fetchStoryListForUri:@"newstories.json" limit:100 completionHandler:completionHandler];
 }
 
 -(void)fetchStoryListForUri:(NSString*)relativeUri
-                         completionHandler:(void (^)(NSArray<HackerNewsStory *>* _Nullable, NSError * _Nullable))completionHandler {
+                      limit:(NSUInteger)limit
+          completionHandler:(void (^)(NSArray<HackerNewsStory *>* _Nullable, NSError * _Nullable))completionHandler {
     
     [self.manager GET:relativeUri parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if ([responseObject isKindOfClass:[NSArray class]]) {
-            NSMutableArray<HackerNewsStory *> *stories = [NSMutableArray<HackerNewsStory*> array];
             
-            NSArray *responseArray = responseObject;
-            for (NSNumber *identifier in responseArray) {
-                HackerNewsStory *story = [self fetchStoryWith:[identifier stringValue]];
-                if (story != nil) {
-                    [stories addObject:story];
+            // we can't initiate a synchronous request on the completion queue, because we would deadlock waiting for the response
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSMutableArray<HackerNewsStory *> *stories = [NSMutableArray<HackerNewsStory*> array];
+                
+                NSArray *responseArray = responseObject;
+                for (NSNumber *identifier in responseArray) {
+                    HackerNewsStory *story = [self fetchStoryWith:[identifier stringValue]];
+                    if (story != nil) {
+                        [stories addObject:story];
+                        
+                        if (stories.count == limit) {
+                            break;
+                        }
+                    }
                 }
-            }
-            if (completionHandler != nil) {
-                completionHandler(stories, nil);
-            }
+                if (completionHandler != nil) {
+                    completionHandler(stories, nil);
+                }
+            });
+        } else {
+            completionHandler(nil, [[NSError alloc] initWithDomain:NSURLErrorDomain code:500 userInfo:nil]); // we should put a better error here
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (completionHandler != nil) {
