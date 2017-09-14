@@ -13,8 +13,8 @@
 		5BF0D3631F6A60F500698821 /* HackerNewsReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3621F6A60F500698821 /* HackerNewsReaderTests.m */; };
 		5BF0D3771F6A6AEC00698821 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF0D3731F6A6AEC00698821 /* LaunchScreen.storyboard */; };
 		5BF0D3781F6A6AEC00698821 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF0D3751F6A6AEC00698821 /* Main.storyboard */; };
-		5BF0D37D1F6A6B0200698821 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D37A1F6A6B0200698821 /* FirstViewController.m */; };
-		5BF0D37E1F6A6B0200698821 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D37C1F6A6B0200698821 /* SecondViewController.m */; };
+		5BF0D37D1F6A6B0200698821 /* NewTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D37A1F6A6B0200698821 /* NewTopViewController.m */; };
+		5BF0D37E1F6A6B0200698821 /* SavedForLaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D37C1F6A6B0200698821 /* SavedForLaterViewController.m */; };
 		5BF0D3811F6A6D1F00698821 /* NewsStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3801F6A6D1F00698821 /* NewsStory.m */; };
 		5BF0D3841F6A6E3C00698821 /* NewsStoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3831F6A6E3C00698821 /* NewsStoriesTableViewController.m */; };
 		5BF0D3871F6A78D500698821 /* NewsStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3861F6A78D500698821 /* NewsStoryViewController.m */; };
@@ -43,10 +43,10 @@
 		5BF0D3641F6A60F500698821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BF0D3741F6A6AEC00698821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Storyboards/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BF0D3761F6A6AEC00698821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Storyboards/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5BF0D3791F6A6B0200698821 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstViewController.h; path = "View Controllers/FirstViewController.h"; sourceTree = "<group>"; };
-		5BF0D37A1F6A6B0200698821 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = "View Controllers/FirstViewController.m"; sourceTree = "<group>"; };
-		5BF0D37B1F6A6B0200698821 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = "View Controllers/SecondViewController.h"; sourceTree = "<group>"; };
-		5BF0D37C1F6A6B0200698821 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = "View Controllers/SecondViewController.m"; sourceTree = "<group>"; };
+		5BF0D3791F6A6B0200698821 /* NewTopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewTopViewController.h; path = "View Controllers/NewTopViewController.h"; sourceTree = "<group>"; };
+		5BF0D37A1F6A6B0200698821 /* NewTopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewTopViewController.m; path = "View Controllers/NewTopViewController.m"; sourceTree = "<group>"; };
+		5BF0D37B1F6A6B0200698821 /* SavedForLaterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavedForLaterViewController.h; path = "View Controllers/SavedForLaterViewController.h"; sourceTree = "<group>"; };
+		5BF0D37C1F6A6B0200698821 /* SavedForLaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavedForLaterViewController.m; path = "View Controllers/SavedForLaterViewController.m"; sourceTree = "<group>"; };
 		5BF0D37F1F6A6D1F00698821 /* NewsStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsStory.h; path = Models/NewsStory.h; sourceTree = "<group>"; };
 		5BF0D3801F6A6D1F00698821 /* NewsStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsStory.m; path = Models/NewsStory.m; sourceTree = "<group>"; };
 		5BF0D3821F6A6E3C00698821 /* NewsStoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsStoriesTableViewController.h; path = "View Controllers/NewsStoriesTableViewController.h"; sourceTree = "<group>"; };
@@ -129,10 +129,10 @@
 		5BF0D36D1F6A69A900698821 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5BF0D3791F6A6B0200698821 /* FirstViewController.h */,
-				5BF0D37A1F6A6B0200698821 /* FirstViewController.m */,
-				5BF0D37B1F6A6B0200698821 /* SecondViewController.h */,
-				5BF0D37C1F6A6B0200698821 /* SecondViewController.m */,
+				5BF0D3791F6A6B0200698821 /* NewTopViewController.h */,
+				5BF0D37A1F6A6B0200698821 /* NewTopViewController.m */,
+				5BF0D37B1F6A6B0200698821 /* SavedForLaterViewController.h */,
+				5BF0D37C1F6A6B0200698821 /* SavedForLaterViewController.m */,
 				5BF0D3821F6A6E3C00698821 /* NewsStoriesTableViewController.h */,
 				5BF0D3831F6A6E3C00698821 /* NewsStoriesTableViewController.m */,
 				5BF0D3851F6A78D500698821 /* NewsStoryViewController.h */,
@@ -271,11 +271,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BF0D38A1F6A811C00698821 /* NewsStoryTableViewCell.m in Sources */,
-				5BF0D37E1F6A6B0200698821 /* SecondViewController.m in Sources */,
+				5BF0D37E1F6A6B0200698821 /* SavedForLaterViewController.m in Sources */,
 				5BF0D34A1F6A60F400698821 /* AppDelegate.m in Sources */,
 				5BF0D3841F6A6E3C00698821 /* NewsStoriesTableViewController.m in Sources */,
 				5BF0D3871F6A78D500698821 /* NewsStoryViewController.m in Sources */,
-				5BF0D37D1F6A6B0200698821 /* FirstViewController.m in Sources */,
+				5BF0D37D1F6A6B0200698821 /* NewTopViewController.m in Sources */,
 				5BF0D3471F6A60F400698821 /* main.m in Sources */,
 				5BF0D3811F6A6D1F00698821 /* NewsStory.m in Sources */,
 			);

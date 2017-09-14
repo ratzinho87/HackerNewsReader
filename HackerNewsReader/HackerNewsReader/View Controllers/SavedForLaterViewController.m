@@ -1,18 +1,18 @@
 //
-//  FirstViewController.m
+//  SecondViewController.m
 //  HackerNewsReader
 //
 //  Created by vagrant on 14/09/2017.
 //  Copyright © 2017 cvlad. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "SavedForLaterViewController.h"
 
-@interface FirstViewController ()
+@interface SavedForLaterViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation SavedForLaterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

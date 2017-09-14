@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  FirstViewController.h
 //  HackerNewsReader
 //
 //  Created by vagrant on 14/09/2017.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface NewTopViewController : UIViewController
 
 
 @end
