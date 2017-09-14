@@ -16,11 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSFetchRequest<NewsStory *> *)fetchRequest;
 
 @property (nullable, nonatomic, copy) NSString *identifier;
-@property (nullable, nonatomic, copy) NSString *title;
 @property (nullable, nonatomic, copy) NSDate *publishingTime;
-@property (nonatomic) BOOL read;
-@property (nonatomic) BOOL saved;
+@property (nonatomic) BOOL isRead;
+@property (nonatomic) BOOL isSaved;
+@property (nullable, nonatomic, copy) NSString *title;
 @property (nullable, nonatomic, copy) NSString *url;
+@property (nonatomic) BOOL isTop;
+@property (nonatomic) BOOL isNew;
 
 @end
 

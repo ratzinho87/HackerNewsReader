@@ -15,10 +15,12 @@
 }
 
 @dynamic identifier;
-@dynamic title;
 @dynamic publishingTime;
-@dynamic read;
-@dynamic saved;
+@dynamic isRead;
+@dynamic isSaved;
+@dynamic title;
 @dynamic url;
+@dynamic isTop;
+@dynamic isNew;
 
 @end
