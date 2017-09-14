@@ -1,0 +1,465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5BF0D3471F6A60F400698821 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3461F6A60F400698821 /* main.m */; };
+		5BF0D34A1F6A60F400698821 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3491F6A60F400698821 /* AppDelegate.m */; };
+		5BF0D3551F6A60F500698821 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF0D3541F6A60F500698821 /* Assets.xcassets */; };
+		5BF0D3631F6A60F500698821 /* HackerNewsReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3621F6A60F500698821 /* HackerNewsReaderTests.m */; };
+		5BF0D3771F6A6AEC00698821 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF0D3731F6A6AEC00698821 /* LaunchScreen.storyboard */; };
+		5BF0D3781F6A6AEC00698821 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF0D3751F6A6AEC00698821 /* Main.storyboard */; };
+		5BF0D37D1F6A6B0200698821 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D37A1F6A6B0200698821 /* FirstViewController.m */; };
+		5BF0D37E1F6A6B0200698821 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D37C1F6A6B0200698821 /* SecondViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5BF0D35F1F6A60F500698821 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BF0D33A1F6A60F400698821 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BF0D3411F6A60F400698821;
+			remoteInfo = HackerNewsReader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5BF0D3421F6A60F400698821 /* HackerNewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BF0D3461F6A60F400698821 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5BF0D3481F6A60F400698821 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5BF0D3491F6A60F400698821 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5BF0D3541F6A60F500698821 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5BF0D3591F6A60F500698821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BF0D35E1F6A60F500698821 /* HackerNewsReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackerNewsReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BF0D3621F6A60F500698821 /* HackerNewsReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackerNewsReaderTests.m; sourceTree = "<group>"; };
+		5BF0D3641F6A60F500698821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BF0D3741F6A6AEC00698821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Storyboards/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5BF0D3761F6A6AEC00698821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Storyboards/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5BF0D3791F6A6B0200698821 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstViewController.h; path = "View Controllers/FirstViewController.h"; sourceTree = "<group>"; };
+		5BF0D37A1F6A6B0200698821 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = "View Controllers/FirstViewController.m"; sourceTree = "<group>"; };
+		5BF0D37B1F6A6B0200698821 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = "View Controllers/SecondViewController.h"; sourceTree = "<group>"; };
+		5BF0D37C1F6A6B0200698821 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = "View Controllers/SecondViewController.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5BF0D33F1F6A60F400698821 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BF0D35B1F6A60F500698821 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5BF0D3391F6A60F400698821 = {
+			isa = PBXGroup;
+			children = (
+				5BF0D3441F6A60F400698821 /* HackerNewsReader */,
+				5BF0D3611F6A60F500698821 /* HackerNewsReaderTests */,
+				5BF0D3431F6A60F400698821 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5BF0D3431F6A60F400698821 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BF0D3421F6A60F400698821 /* HackerNewsReader.app */,
+				5BF0D35E1F6A60F500698821 /* HackerNewsReaderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BF0D3441F6A60F400698821 /* HackerNewsReader */ = {
+			isa = PBXGroup;
+			children = (
+				5BF0D3701F6A6A0100698821 /* Models */,
+				5BF0D36F1F6A69D900698821 /* Storyboards */,
+				5BF0D36E1F6A69CB00698821 /* Views */,
+				5BF0D36D1F6A69A900698821 /* View Controllers */,
+				5BF0D3481F6A60F400698821 /* AppDelegate.h */,
+				5BF0D3491F6A60F400698821 /* AppDelegate.m */,
+				5BF0D3541F6A60F500698821 /* Assets.xcassets */,
+				5BF0D3591F6A60F500698821 /* Info.plist */,
+				5BF0D3451F6A60F400698821 /* Supporting Files */,
+			);
+			path = HackerNewsReader;
+			sourceTree = "<group>";
+		};
+		5BF0D3451F6A60F400698821 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5BF0D3461F6A60F400698821 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5BF0D3611F6A60F500698821 /* HackerNewsReaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				5BF0D3621F6A60F500698821 /* HackerNewsReaderTests.m */,
+				5BF0D3641F6A60F500698821 /* Info.plist */,
+			);
+			path = HackerNewsReaderTests;
+			sourceTree = "<group>";
+		};
+		5BF0D36D1F6A69A900698821 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5BF0D3791F6A6B0200698821 /* FirstViewController.h */,
+				5BF0D37A1F6A6B0200698821 /* FirstViewController.m */,
+				5BF0D37B1F6A6B0200698821 /* SecondViewController.h */,
+				5BF0D37C1F6A6B0200698821 /* SecondViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5BF0D36E1F6A69CB00698821 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		5BF0D36F1F6A69D900698821 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5BF0D3731F6A6AEC00698821 /* LaunchScreen.storyboard */,
+				5BF0D3751F6A6AEC00698821 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		5BF0D3701F6A6A0100698821 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5BF0D3411F6A60F400698821 /* HackerNewsReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BF0D3671F6A60F500698821 /* Build configuration list for PBXNativeTarget "HackerNewsReader" */;
+			buildPhases = (
+				5BF0D33E1F6A60F400698821 /* Sources */,
+				5BF0D33F1F6A60F400698821 /* Frameworks */,
+				5BF0D3401F6A60F400698821 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HackerNewsReader;
+			productName = HackerNewsReader;
+			productReference = 5BF0D3421F6A60F400698821 /* HackerNewsReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5BF0D35D1F6A60F500698821 /* HackerNewsReaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BF0D36A1F6A60F500698821 /* Build configuration list for PBXNativeTarget "HackerNewsReaderTests" */;
+			buildPhases = (
+				5BF0D35A1F6A60F500698821 /* Sources */,
+				5BF0D35B1F6A60F500698821 /* Frameworks */,
+				5BF0D35C1F6A60F500698821 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BF0D3601F6A60F500698821 /* PBXTargetDependency */,
+			);
+			name = HackerNewsReaderTests;
+			productName = HackerNewsReaderTests;
+			productReference = 5BF0D35E1F6A60F500698821 /* HackerNewsReaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5BF0D33A1F6A60F400698821 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = cvlad;
+				TargetAttributes = {
+					5BF0D3411F6A60F400698821 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					5BF0D35D1F6A60F500698821 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5BF0D3411F6A60F400698821;
+					};
+				};
+			};
+			buildConfigurationList = 5BF0D33D1F6A60F400698821 /* Build configuration list for PBXProject "HackerNewsReader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5BF0D3391F6A60F400698821;
+			productRefGroup = 5BF0D3431F6A60F400698821 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5BF0D3411F6A60F400698821 /* HackerNewsReader */,
+				5BF0D35D1F6A60F500698821 /* HackerNewsReaderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5BF0D3401F6A60F400698821 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BF0D3781F6A6AEC00698821 /* Main.storyboard in Resources */,
+				5BF0D3551F6A60F500698821 /* Assets.xcassets in Resources */,
+				5BF0D3771F6A6AEC00698821 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BF0D35C1F6A60F500698821 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5BF0D33E1F6A60F400698821 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BF0D37E1F6A6B0200698821 /* SecondViewController.m in Sources */,
+				5BF0D34A1F6A60F400698821 /* AppDelegate.m in Sources */,
+				5BF0D37D1F6A6B0200698821 /* FirstViewController.m in Sources */,
+				5BF0D3471F6A60F400698821 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BF0D35A1F6A60F500698821 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BF0D3631F6A60F500698821 /* HackerNewsReaderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5BF0D3601F6A60F500698821 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BF0D3411F6A60F400698821 /* HackerNewsReader */;
+			targetProxy = 5BF0D35F1F6A60F500698821 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5BF0D3731F6A6AEC00698821 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BF0D3741F6A6AEC00698821 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5BF0D3751F6A6AEC00698821 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BF0D3761F6A6AEC00698821 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5BF0D3651F6A60F500698821 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5BF0D3661F6A60F500698821 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5BF0D3681F6A60F500698821 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HackerNewsReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cvlad.HackerNewsReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5BF0D3691F6A60F500698821 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HackerNewsReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cvlad.HackerNewsReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5BF0D36B1F6A60F500698821 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HackerNewsReaderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cvlad.HackerNewsReaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackerNewsReader.app/HackerNewsReader";
+			};
+			name = Debug;
+		};
+		5BF0D36C1F6A60F500698821 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HackerNewsReaderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cvlad.HackerNewsReaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackerNewsReader.app/HackerNewsReader";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5BF0D33D1F6A60F400698821 /* Build configuration list for PBXProject "HackerNewsReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BF0D3651F6A60F500698821 /* Debug */,
+				5BF0D3661F6A60F500698821 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BF0D3671F6A60F500698821 /* Build configuration list for PBXNativeTarget "HackerNewsReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BF0D3681F6A60F500698821 /* Debug */,
+				5BF0D3691F6A60F500698821 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5BF0D36A1F6A60F500698821 /* Build configuration list for PBXNativeTarget "HackerNewsReaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BF0D36B1F6A60F500698821 /* Debug */,
+				5BF0D36C1F6A60F500698821 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5BF0D33A1F6A60F400698821 /* Project object */;
+}
