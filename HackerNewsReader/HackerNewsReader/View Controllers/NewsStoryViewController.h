@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsStory+CoreDataClass.h"
 
 @interface NewsStoryViewController : UIViewController
+
+@property (strong) NewsStory *story;
 
 @end

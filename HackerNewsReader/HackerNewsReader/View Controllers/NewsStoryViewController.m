@@ -9,6 +9,7 @@
 #import "NewsStoryViewController.h"
 
 @interface NewsStoryViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *uriTextField;
 @property (weak, nonatomic) IBOutlet UIWebView *newsStoryWebView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
@@ -20,7 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.uriTextField.text = @"https://www.google.com/";
+    self.uriTextField.text = self.story.url;
+    [self.newsStoryWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.story.url]]];
+    self.saveButton.enabled = !self.story.isSaved;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,14 +34,5 @@
 - (IBAction)save:(UIBarButtonItem *)sender {
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

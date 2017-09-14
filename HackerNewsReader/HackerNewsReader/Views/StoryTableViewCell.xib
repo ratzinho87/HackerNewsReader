@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="StoryTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-rG-8y9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R2V-wN-hBR">
+                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="R2V-wN-hBR" secondAttribute="height" multiplier="1:1" id="v6Q-1e-XOI"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aCZ-qW-pwo">
+                                <rect key="frame" x="47.5" y="0.0" width="225" height="43.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWq-3Y-i3g">
+                                        <rect key="frame" x="0.0" y="0.0" width="225" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ow1-gB-LSy">
+                                        <rect key="frame" x="0.0" y="31.5" width="225" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmj-fu-sw1">
+                                <rect key="frame" x="276.5" y="0.0" width="43.5" height="43.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cmj-fu-sw1" secondAttribute="height" multiplier="1:1" id="Wwx-fw-whY"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="second"/>
+                            </button>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="hmD-rG-8y9" secondAttribute="trailing" id="1oy-xu-Bxa"/>
+                    <constraint firstAttribute="bottom" secondItem="hmD-rG-8y9" secondAttribute="bottom" id="EvP-sB-UC7"/>
+                    <constraint firstItem="hmD-rG-8y9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MNC-ej-dPQ"/>
+                    <constraint firstItem="hmD-rG-8y9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sgU-IO-0vF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="logoImageView" destination="R2V-wN-hBR" id="Tpc-Ed-pfl"/>
+                <outlet property="markAsReadButton" destination="cmj-fu-sw1" id="O83-gS-kF0"/>
+                <outlet property="publishingTimeLabel" destination="ow1-gB-LSy" id="f5k-S4-DaZ"/>
+                <outlet property="titleLabel" destination="cWq-3Y-i3g" id="OKD-Iq-N0t"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="second" width="30" height="30"/>
+    </resources>
+</document>

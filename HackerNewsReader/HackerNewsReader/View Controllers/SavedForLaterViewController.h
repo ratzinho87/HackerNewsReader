@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SavedForLaterViewController : UIViewController
+@interface SavedForLaterViewController : UITableViewController
 
 
 @end

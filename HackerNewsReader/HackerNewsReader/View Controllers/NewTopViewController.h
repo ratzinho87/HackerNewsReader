@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewTopViewController : UIViewController
+@interface NewTopViewController : UITableViewController
 
 
 @end
