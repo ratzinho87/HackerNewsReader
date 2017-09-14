@@ -25,6 +25,12 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"StoryTableViewCell" bundle:nil] forCellReuseIdentifier:[StoryTableViewCell reuseIdentifier]];
     
     [self loadData];
+    
+    __weak typeof(self) weakSelf = self;
+    [[NewsStoriesDataSource sharedInstance] updateStories:^{
+        [weakSelf loadData];
+        [weakSelf.tableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,8 +57,6 @@
         [stories addObject:[NSArray<NewsStory *> array]];
     }
     self.stories = stories;
-    
-    [dataSource updateStories:nil];
 }
 
 #pragma mark - Table view data source

@@ -59,7 +59,7 @@
 
 
 
--(void)updateStories:(nullable void (^)(NSArray<NewsStory *>* _Nullable, NSError * _Nullable))completionHandler {
+-(void)updateStories:(nullable void (^)())completionHandler {
     HackerNewsApiClient *client = [[HackerNewsApiClient alloc] initWithBaseUri:@"https://hacker-news.firebaseio.com/v0/"];
     
     [self.persistentContainer performBackgroundTask:^(NSManagedObjectContext * _Nonnull context) {
@@ -82,6 +82,12 @@
                         [context deleteObject:oldStory];
                     }                    
                     [context save:nil];
+                    
+                    if (completionHandler != nil) {
+                        dispatch_async(dispatch_get_main_queue(), ^{                            
+                            completionHandler();
+                        });
+                    }
                 }];
             }];
         }];

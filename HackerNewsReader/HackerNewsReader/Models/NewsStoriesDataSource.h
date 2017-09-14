@@ -17,6 +17,6 @@
 -(NSArray<NewsStory *>*)getNewStories;
 -(NSArray<NewsStory *>*)getSavedStories;
 
--(void)updateStories:(nullable void (^)(NSArray<NewsStory *>* _Nullable, NSError * _Nullable))completionHandler;
+-(void)updateStories:(nullable void (^)())completionHandler;
 
 @end
