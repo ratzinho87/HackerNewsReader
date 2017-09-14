@@ -15,6 +15,10 @@
 		5BF0D3781F6A6AEC00698821 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF0D3751F6A6AEC00698821 /* Main.storyboard */; };
 		5BF0D37D1F6A6B0200698821 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D37A1F6A6B0200698821 /* FirstViewController.m */; };
 		5BF0D37E1F6A6B0200698821 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D37C1F6A6B0200698821 /* SecondViewController.m */; };
+		5BF0D3811F6A6D1F00698821 /* NewsStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3801F6A6D1F00698821 /* NewsStory.m */; };
+		5BF0D3841F6A6E3C00698821 /* NewsStoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3831F6A6E3C00698821 /* NewsStoriesTableViewController.m */; };
+		5BF0D3871F6A78D500698821 /* NewsStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3861F6A78D500698821 /* NewsStoryViewController.m */; };
+		5BF0D38A1F6A811C00698821 /* NewsStoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3891F6A811C00698821 /* NewsStoryTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,14 @@
 		5BF0D37A1F6A6B0200698821 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = "View Controllers/FirstViewController.m"; sourceTree = "<group>"; };
 		5BF0D37B1F6A6B0200698821 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = "View Controllers/SecondViewController.h"; sourceTree = "<group>"; };
 		5BF0D37C1F6A6B0200698821 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = "View Controllers/SecondViewController.m"; sourceTree = "<group>"; };
+		5BF0D37F1F6A6D1F00698821 /* NewsStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsStory.h; path = Models/NewsStory.h; sourceTree = "<group>"; };
+		5BF0D3801F6A6D1F00698821 /* NewsStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsStory.m; path = Models/NewsStory.m; sourceTree = "<group>"; };
+		5BF0D3821F6A6E3C00698821 /* NewsStoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsStoriesTableViewController.h; path = "View Controllers/NewsStoriesTableViewController.h"; sourceTree = "<group>"; };
+		5BF0D3831F6A6E3C00698821 /* NewsStoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsStoriesTableViewController.m; path = "View Controllers/NewsStoriesTableViewController.m"; sourceTree = "<group>"; };
+		5BF0D3851F6A78D500698821 /* NewsStoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsStoryViewController.h; path = "View Controllers/NewsStoryViewController.h"; sourceTree = "<group>"; };
+		5BF0D3861F6A78D500698821 /* NewsStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsStoryViewController.m; path = "View Controllers/NewsStoryViewController.m"; sourceTree = "<group>"; };
+		5BF0D3881F6A811C00698821 /* NewsStoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsStoryTableViewCell.h; path = Views/NewsStoryTableViewCell.h; sourceTree = "<group>"; };
+		5BF0D3891F6A811C00698821 /* NewsStoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsStoryTableViewCell.m; path = Views/NewsStoryTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +133,10 @@
 				5BF0D37A1F6A6B0200698821 /* FirstViewController.m */,
 				5BF0D37B1F6A6B0200698821 /* SecondViewController.h */,
 				5BF0D37C1F6A6B0200698821 /* SecondViewController.m */,
+				5BF0D3821F6A6E3C00698821 /* NewsStoriesTableViewController.h */,
+				5BF0D3831F6A6E3C00698821 /* NewsStoriesTableViewController.m */,
+				5BF0D3851F6A78D500698821 /* NewsStoryViewController.h */,
+				5BF0D3861F6A78D500698821 /* NewsStoryViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -128,6 +144,8 @@
 		5BF0D36E1F6A69CB00698821 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5BF0D3881F6A811C00698821 /* NewsStoryTableViewCell.h */,
+				5BF0D3891F6A811C00698821 /* NewsStoryTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -144,6 +162,8 @@
 		5BF0D3701F6A6A0100698821 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5BF0D37F1F6A6D1F00698821 /* NewsStory.h */,
+				5BF0D3801F6A6D1F00698821 /* NewsStory.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -250,10 +270,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BF0D38A1F6A811C00698821 /* NewsStoryTableViewCell.m in Sources */,
 				5BF0D37E1F6A6B0200698821 /* SecondViewController.m in Sources */,
 				5BF0D34A1F6A60F400698821 /* AppDelegate.m in Sources */,
+				5BF0D3841F6A6E3C00698821 /* NewsStoriesTableViewController.m in Sources */,
+				5BF0D3871F6A78D500698821 /* NewsStoryViewController.m in Sources */,
 				5BF0D37D1F6A6B0200698821 /* FirstViewController.m in Sources */,
 				5BF0D3471F6A60F400698821 /* main.m in Sources */,
+				5BF0D3811F6A6D1F00698821 /* NewsStory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +474,7 @@
 				5BF0D3691F6A60F500698821 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5BF0D36A1F6A60F500698821 /* Build configuration list for PBXNativeTarget "HackerNewsReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +483,7 @@
 				5BF0D36C1F6A60F500698821 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
