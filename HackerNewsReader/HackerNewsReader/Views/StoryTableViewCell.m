@@ -16,7 +16,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -29,7 +30,7 @@
     self.titleLabel.text = story.title;
     self.publishingTimeLabel.text = [NSString stringWithFormat:@"%@", story.publishingTime];
     
-    UIImage *readImage = story.isRead ? [UIImage imageNamed:@"first"] : [UIImage imageNamed:@"second"];
+    UIImage *readImage = story.isRead ? [UIImage imageNamed:@"flag_filled"] : [UIImage imageNamed:@"flag_empty"];
     [self.markAsReadButton setImage:readImage forState:UIControlStateNormal];
 }
 
