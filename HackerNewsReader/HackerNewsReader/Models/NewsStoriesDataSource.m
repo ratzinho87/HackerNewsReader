@@ -15,7 +15,7 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
 
 @property (nonatomic, strong) NSPersistentContainer *persistentContainer;
 
-@property (nonatomic, strong) NSLock *updateLock;
+@property (nonatomic, strong) dispatch_semaphore_t updateSemaphore;
 
 @end
 
@@ -37,7 +37,7 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
             NSLog(@"Failed to create persistent store. error: %@", error);
         }
     }];
-    self.updateLock = [[NSLock alloc] init];
+    self.updateSemaphore = dispatch_semaphore_create(1);
     return self;
 }
 
@@ -97,8 +97,8 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
     [self.persistentContainer.viewContext save:nil];
 }
 
--(void)updateStories:(nullable void (^)())completionHandler {
-    if (![self.updateLock tryLock]) {
+-(void)updateStories:(nullable void (^)())completionHandler {    ;
+    if (dispatch_semaphore_wait(self.updateSemaphore, 0) != 0) {
         NSLog(@"Update already in progress, so skipping.");
         return;
     }
@@ -128,7 +128,7 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
                     }                    
                     [context save:nil];
                     
-                    [self.updateLock unlock];
+                    dispatch_semaphore_signal(self.updateSemaphore);
                     if (completionHandler != nil) {
                         dispatch_async(dispatch_get_main_queue(), ^{                            
                             completionHandler();
