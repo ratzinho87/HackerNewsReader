@@ -133,9 +133,6 @@ static NSString *const ShowNewsSegueIdentifier = @"ShowNewsSegue";
     } else {
         [[NewsStoriesDataSource sharedInstance] markStoryAsRead:story];
     }
-    
-    [self.tableView reloadRowsAtIndexPaths:[NSArray<NSIndexPath *> arrayWithObject:indexPath]
-                                withRowAnimation:NO];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
