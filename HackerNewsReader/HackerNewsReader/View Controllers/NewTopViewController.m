@@ -51,8 +51,10 @@ static NSString *const ShowNewsSegueIdentifier = @"ShowNewsSegue";
 }
 
 - (void) startRefreshData {
+    [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:YES];
     __weak typeof(self) weakSelf = self;
     [[NewsStoriesDataSource sharedInstance] updateStories:^{
+        [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:NO];
         [weakSelf loadData];
         [weakSelf.tableView reloadData];
     }];
