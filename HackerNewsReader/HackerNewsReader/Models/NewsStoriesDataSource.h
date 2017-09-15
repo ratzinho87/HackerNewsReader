@@ -15,9 +15,9 @@ extern NSString *const SavedStoriesChangedNotification;
 
 +(instancetype)sharedInstance;
 
--(NSArray<NewsStory *>*)getTopStories;
--(NSArray<NewsStory *>*)getNewStories;
--(NSArray<NewsStory *>*)getSavedStories;
+-(NSFetchedResultsController<NewsStory *>*)getTopStories;
+-(NSFetchedResultsController<NewsStory *>*)getNewStories;
+-(NSFetchedResultsController<NewsStory *>*)getSavedStories;
 
 -(void)saveStory:(NewsStory *)story;
 -(void)unsaveStory:(NewsStory *)story;

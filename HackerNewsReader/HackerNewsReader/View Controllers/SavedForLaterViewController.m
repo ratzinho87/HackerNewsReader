@@ -11,9 +11,9 @@
 #import "StoryTableViewCell.h"
 #import "NewsStoryViewController.h"
 
-@interface SavedForLaterViewController () <StoryTableViewCellDelegate>
+@interface SavedForLaterViewController () <StoryTableViewCellDelegate, NSFetchedResultsControllerDelegate>
 
-@property (strong) NSArray<NewsStory *> *stories;
+@property (strong) NSFetchedResultsController<NewsStory *> *stories;
 
 -(void)handleSavedStoriesChanged:(NSNotification*)notification;
 
@@ -38,6 +38,7 @@
 
 -(void)loadData {
     self.stories = [[NewsStoriesDataSource sharedInstance] getSavedStories];
+    self.stories.delegate = self;
 }
 
 -(void)handleSavedStoriesChanged:(NSNotification*)notification {
@@ -54,7 +55,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.stories.count;
+    return self.stories.fetchedObjects.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,7 +63,7 @@
     
     if (cell != nil) {
         cell.delegate = self;
-        [cell configureWith:self.stories[indexPath.row] at:indexPath];
+        [cell configureWith:[self.stories objectAtIndexPath:indexPath] at:indexPath];
     }
     
     return cell;
@@ -75,14 +76,7 @@
                                                                         handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
                                                                             if(weakSelf != nil) {
                                                                                 typeof(self) strongSelf = weakSelf;
-                                                                                [[NewsStoriesDataSource sharedInstance] unsaveStory:strongSelf.stories[indexPath.row]];
-                                                                                
-                                                                                // Remove from the collection
-                                                                                NSMutableArray<NewsStory *> *newStories = [self.stories mutableCopy];
-                                                                                [newStories removeObjectAtIndex:indexPath.row];
-                                                                                self.stories = newStories;
-                                                                                
-                                                                                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                                                                                [[NewsStoriesDataSource sharedInstance] unsaveStory:[strongSelf.stories objectAtIndexPath:indexPath]];
                                                                             }
                                                                         }];
     
@@ -93,7 +87,7 @@
 }
 
 -(void)didPressMarkAsReadOn:(NSIndexPath *)indexPath {
-    NewsStory *story = self.stories[indexPath.row];
+    NewsStory *story = [self.stories objectAtIndexPath:indexPath];
     if (story.isRead) {
         [[NewsStoriesDataSource sharedInstance] markStoryAsUnread:story];
     } else {
@@ -105,13 +99,21 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NewsStory *story = self.stories[indexPath.row];
+    NewsStory *story = [self.stories objectAtIndexPath:indexPath];
     [self performSegueWithIdentifier:@"ShowNewsSegue" sender:story];
     
     // Don't leave the row selected, so it can be tapped again
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
+#pragma mark - NSFetchedResultsControllerDelegate
+
+-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    if (type == NSFetchedResultsChangeUpdate) {
+        [self.tableView reloadRowsAtIndexPaths:[NSArray<NSIndexPath *> arrayWithObject:indexPath]
+                              withRowAnimation:NO];
+    }
+}
 
 #pragma mark - Navigation
 

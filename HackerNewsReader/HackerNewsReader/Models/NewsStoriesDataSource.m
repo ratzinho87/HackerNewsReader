@@ -40,25 +40,25 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
     return self;
 }
 
--(NSArray<NewsStory *>*)getTopStories {
+-(NSFetchedResultsController<NewsStory *>*)getTopStories {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isTop == 1"];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"score" ascending:NO];
     return [self fetchWithPredicate:predicate sortDescriptor:sortDescriptor context:self.persistentContainer.viewContext];
 }
 
--(NSArray<NewsStory *>*)getNewStories {
+-(NSFetchedResultsController<NewsStory *>*)getNewStories {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isNew == 1"];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"publishingTime" ascending:NO];
     return [self fetchWithPredicate:predicate sortDescriptor:sortDescriptor context:self.persistentContainer.viewContext];
 }
 
--(NSArray<NewsStory *>*)getSavedStories {
+-(NSFetchedResultsController<NewsStory *>*)getSavedStories {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isSaved == 1"];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"publishingTime" ascending:NO];
     return [self fetchWithPredicate:predicate sortDescriptor:sortDescriptor context:self.persistentContainer.viewContext];
 }
 
--(NSArray<NewsStory *>*)fetchWithPredicate:(NSPredicate*)predicate
+-(NSFetchedResultsController<NewsStory *>*)fetchWithPredicate:(NSPredicate*)predicate
                             sortDescriptor:(NSSortDescriptor *)sortDescriptor
                                    context:(NSManagedObjectContext*)context {
     NSFetchRequest<NewsStory *> *fetchRequest = [NewsStory fetchRequest];
@@ -66,7 +66,11 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
     if (sortDescriptor != nil) {
         fetchRequest.sortDescriptors = [NSArray<NSSortDescriptor *> arrayWithObject:sortDescriptor];
     }
-    return [context executeFetchRequest:fetchRequest error:nil];
+    NSFetchedResultsController<NewsStory *> *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                                              managedObjectContext:context
+                                                                                                sectionNameKeyPath:nil cacheName:nil];
+    [controller performFetch:nil];
+    return controller;
 }
 
 
@@ -139,7 +143,7 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
                        setIsTopToYes:(BOOL)isTop
                        setIsNewToYes:(BOOL)isNew {
     
-    NSArray<NewsStory *> *dbStories =  [self fetchWithPredicate:predicate sortDescriptor:nil context:context];
+    NSArray<NewsStory *> *dbStories =  [[self fetchWithPredicate:predicate sortDescriptor:nil context:context] fetchedObjects];
     // Transform to a dictionary, so we can easily retrieve stories by id
     NSMutableDictionary<NSString *, NewsStory *> *dbStoriesDict = [NSMutableDictionary<NSString *, NewsStory *> dictionary];
     for (NewsStory *dbStory in dbStories) {

@@ -13,9 +13,9 @@
 #import "NewsStory+CoreDataClass.h"
 #import "UIButton+Block.h"
 
-@interface NewTopViewController () <StoryTableViewCellDelegate>
+@interface NewTopViewController () <StoryTableViewCellDelegate, NSFetchedResultsControllerDelegate>
 
-@property (strong) NSArray<NSArray<NewsStory *>*> *stories;
+@property (strong) NSArray<NSFetchedResultsController<NewsStory *>*> *stories;
 
 @end
 
@@ -36,23 +36,12 @@
 
 -(void)loadData {
     NewsStoriesDataSource *dataSource = [NewsStoriesDataSource sharedInstance];
+    NSFetchedResultsController<NewsStory *> *topStories = [dataSource getTopStories];
+    topStories.delegate = self;
+    NSFetchedResultsController<NewsStory *> *newStories = [dataSource getNewStories];
+    newStories.delegate = self;
     
-    NSMutableArray<NSArray<NewsStory *>*> *stories = [NSMutableArray<NSArray<NewsStory *>*> array];
-    
-    NSArray<NewsStory *>* top = [dataSource getTopStories];
-    if (top != nil) {
-        [stories addObject:top];
-    } else {
-        [stories addObject:[NSArray<NewsStory *> array]];
-    }
-    
-    NSArray<NewsStory *>* new = [dataSource getNewStories];
-    if (new != nil) {
-        [stories addObject:new];
-    } else {
-        [stories addObject:[NSArray<NewsStory *> array]];
-    }
-    self.stories = stories;
+    self.stories = [NSArray<NSFetchedResultsController<NewsStory *>*> arrayWithObjects:topStories, newStories, nil];
 }
 
 - (IBAction)refreshButtonPressed:(UIBarButtonItem *)sender {
@@ -86,7 +75,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section >= 0 && section < self.stories.count) {
-        return self.stories[section].count;
+        return self.stories[section].fetchedObjects.count;
     }
     
     return 0;
@@ -97,29 +86,32 @@
     
     if (cell != nil) {
         cell.delegate = self;
-        [cell configureWith:self.stories[indexPath.section][indexPath.row] at:indexPath];
+        [cell configureWith:[self getStoryAt:indexPath] at:indexPath];
     }
     
     return cell;
 }
 
+-(NewsStory *)getStoryAt:(NSIndexPath *)indexPath {
+    // This method helps us deal with the fact that we have two sections in the table,
+    // but we are not using the sections built into NSFetchedResultsController
+    return [self.stories[indexPath.section] objectAtIndexPath:[NSIndexPath indexPathForItem:indexPath.row inSection:0]];
+}
+
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NewsStory *story = self.stories[indexPath.section][indexPath.row];
+    NewsStory *story = [self getStoryAt:indexPath];
     __weak typeof(self) weakSelf = self;
     UITableViewRowAction *saveAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
                                                                           title:story.isSaved ? @"Unsave" : @"Save"
                                                                         handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
                                                                             if(weakSelf != nil) {
                                                                                 typeof(self) strongSelf = weakSelf;
-                                                                                NewsStory *story = strongSelf.stories[indexPath.section][indexPath.row];
+                                                                                NewsStory *story = [strongSelf getStoryAt:indexPath];
                                                                                 if (story.isSaved) {
                                                                                     [[NewsStoriesDataSource sharedInstance] unsaveStory:story];
                                                                                 } else {
                                                                                     [[NewsStoriesDataSource sharedInstance] saveStory:story];
                                                                                 }
-                                                                                
-                                                                                [strongSelf.tableView reloadRowsAtIndexPaths:[NSArray<NSIndexPath *> arrayWithObject:indexPath]
-                                                                                                            withRowAnimation:YES];
                                                                             }
                                                                         }];
     
@@ -131,7 +123,7 @@
 }
 
 -(void)didPressMarkAsReadOn:(NSIndexPath *)indexPath {
-    NewsStory *story = self.stories[indexPath.section][indexPath.row];
+    NewsStory *story = [self getStoryAt:indexPath];
     if (story.isRead) {
         [[NewsStoriesDataSource sharedInstance] markStoryAsUnread:story];
     } else {
@@ -143,13 +135,24 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NewsStory *story = self.stories[indexPath.section][indexPath.row];
+    NewsStory *story = [self getStoryAt:indexPath];
     [self performSegueWithIdentifier:@"ShowNewsSegue" sender:story];
     
     // Don't leave the row selected, so it can be tapped again
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
+#pragma mark - NSFetchedResultsControllerDelegate
+
+-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    if (type == NSFetchedResultsChangeUpdate) {
+        NSIndexPath *tableIndexPath = [NSIndexPath indexPathForRow:indexPath.row
+                                                         inSection:[self.stories indexOfObject:controller]];
+        [self.tableView reloadRowsAtIndexPaths:[NSArray<NSIndexPath *> arrayWithObject:tableIndexPath]
+                              withRowAnimation:NO];
+    }
+}
 
  #pragma mark - Navigation
 
