@@ -15,6 +15,8 @@
 
 @property (strong) NSArray<NewsStory *> *stories;
 
+-(void)handleSavedStoriesChanged:(NSNotification*)notification;
+
 @end
 
 @implementation SavedForLaterViewController
@@ -23,6 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"StoryTableViewCell" bundle:nil] forCellReuseIdentifier:[StoryTableViewCell reuseIdentifier]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSavedStoriesChanged:) name:SavedStoriesChangedNotification object:nil];
     
     [self loadData];    
 }
@@ -34,6 +38,13 @@
 
 -(void)loadData {
     self.stories = [[NewsStoriesDataSource sharedInstance] getSavedStories];
+}
+
+-(void)handleSavedStoriesChanged:(NSNotification*)notification {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self loadData];
+        [self.tableView reloadData];
+    });
 }
 
 #pragma mark - Table view data source

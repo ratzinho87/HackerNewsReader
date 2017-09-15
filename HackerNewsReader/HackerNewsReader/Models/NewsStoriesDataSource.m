@@ -9,6 +9,8 @@
 #import "NewsStoriesDataSource.h"
 #import "HackerNewsApiClient.h"
 
+NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
+
 @interface NewsStoriesDataSource()
 
 @property (nonatomic, strong) NSPersistentContainer *persistentContainer;
@@ -71,11 +73,13 @@
 -(void)saveStory:(NewsStory *)story {
     story.isSaved = YES;
     [self.persistentContainer.viewContext save:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:SavedStoriesChangedNotification object:story];
 }
 
 -(void)unsaveStory:(NewsStory *)story {
     story.isSaved = NO;
     [self.persistentContainer.viewContext save:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:SavedStoriesChangedNotification object:story];
 }
 
 -(void)markStoryAsRead:(NewsStory *)story {
