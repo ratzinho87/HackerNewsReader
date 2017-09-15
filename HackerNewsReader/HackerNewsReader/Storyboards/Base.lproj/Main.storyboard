@@ -108,7 +108,7 @@
         <scene sceneID="cuj-bC-p5G">
             <objects>
                 <tableViewController title="News Reader" id="Ir3-OK-qas" customClass="NewTopViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dbr-rv-cZK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dbr-rv-cZK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -118,7 +118,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News Reader" id="Kvx-gQ-4Wd">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="htr-Jc-XBv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="htr-Jc-XBv">
                             <connections>
                                 <action selector="refreshButtonPressed:" destination="Ir3-OK-qas" id="qob-Rn-92P"/>
                             </connections>
@@ -136,7 +136,7 @@
         <scene sceneID="r8F-Jz-fPo">
             <objects>
                 <tableViewController title="News Reader" id="0fu-mz-2V3" customClass="SavedForLaterViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ktd-l2-QRN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ktd-l2-QRN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
