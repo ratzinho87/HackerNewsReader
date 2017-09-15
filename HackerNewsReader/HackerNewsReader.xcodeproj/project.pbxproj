@@ -191,19 +191,35 @@
 		5BF0D3701F6A6A0100698821 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5BF0D3AD1F6B598D00698821 /* Core Data */,
+				5BF0D3AE1F6B599D00698821 /* API */,
+				5BF0D3A01F6AEE1E00698821 /* NewsStoriesDataSource.h */,
+				5BF0D3A11F6AEE1E00698821 /* NewsStoriesDataSource.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		5BF0D3AD1F6B598D00698821 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
 				5BF0D38E1F6AC0F900698821 /* Model.xcdatamodeld */,
 				5BF0D3911F6AC38400698821 /* NewsStory+CoreDataClass.h */,
 				5BF0D3921F6AC38400698821 /* NewsStory+CoreDataClass.m */,
 				5BF0D3931F6AC38400698821 /* NewsStory+CoreDataProperties.h */,
 				5BF0D3941F6AC38400698821 /* NewsStory+CoreDataProperties.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		5BF0D3AE1F6B599D00698821 /* API */ = {
+			isa = PBXGroup;
+			children = (
 				5BF0D39A1F6ACACD00698821 /* HackerNewsApiClient.h */,
 				5BF0D39B1F6ACACD00698821 /* HackerNewsApiClient.m */,
 				5BF0D39D1F6AE40A00698821 /* HackerNewsStory.h */,
 				5BF0D39E1F6AE40A00698821 /* HackerNewsStory.m */,
-				5BF0D3A01F6AEE1E00698821 /* NewsStoriesDataSource.h */,
-				5BF0D3A11F6AEE1E00698821 /* NewsStoriesDataSource.m */,
 			);
-			name = Models;
+			name = API;
 			sourceTree = "<group>";
 		};
 		68674E84A20C60ACC6ACE0B4 /* Frameworks */ = {
