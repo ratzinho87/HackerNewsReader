@@ -2,7 +2,7 @@
 //  NewsStory+CoreDataProperties.h
 //  HackerNewsReader
 //
-//  Created by vagrant on 14/09/2017.
+//  Created by vagrant on 15/09/2017.
 //  Copyright © 2017 cvlad. All rights reserved.
 //
 
@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *url;
 @property (nonatomic) BOOL isTop;
 @property (nonatomic) BOOL isNew;
+@property (nonatomic) int32_t score;
 
 @end
 

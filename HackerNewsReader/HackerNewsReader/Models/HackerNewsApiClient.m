@@ -24,7 +24,7 @@
 }
 
 -(void)fetchTopStories:(void (^)(NSArray<HackerNewsStory *>* _Nullable, NSError * _Nullable))completionHandler {
-    [self fetchStoryListForUri:@"topstories.json" limit:15 completionHandler:completionHandler];
+    [self fetchStoryListForUri:@"topstories.json" limit:10 completionHandler:completionHandler];
 }
 
 -(void)fetchNewStories:(void (^)(NSArray<HackerNewsStory *>* _Nullable, NSError * _Nullable))completionHandler {
