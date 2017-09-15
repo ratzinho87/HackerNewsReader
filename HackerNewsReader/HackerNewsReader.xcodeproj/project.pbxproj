@@ -24,6 +24,7 @@
 		5BF0D3A21F6AEE1E00698821 /* NewsStoriesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3A11F6AEE1E00698821 /* NewsStoriesDataSource.m */; };
 		5BF0D3A81F6AF48E00698821 /* StoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3A61F6AF48E00698821 /* StoryTableViewCell.m */; };
 		5BF0D3A91F6AF48E00698821 /* StoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF0D3A71F6AF48E00698821 /* StoryTableViewCell.xib */; };
+		5BF0D3AC1F6B534500698821 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0D3AB1F6B534500698821 /* UIButton+Block.m */; };
 		E06D90EBAC9AF66E367190D8 /* libPods-HackerNewsReader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99ED90B496F3B5D86F20409C /* libPods-HackerNewsReader.a */; };
 		E272FA1B1544C86B1596A9C8 /* libPods-HackerNewsReaderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FDFA93CDA12FCA2F2E0832 /* libPods-HackerNewsReaderTests.a */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,8 @@
 		5BF0D3A51F6AF48E00698821 /* StoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryTableViewCell.h; path = Views/StoryTableViewCell.h; sourceTree = "<group>"; };
 		5BF0D3A61F6AF48E00698821 /* StoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryTableViewCell.m; path = Views/StoryTableViewCell.m; sourceTree = "<group>"; };
 		5BF0D3A71F6AF48E00698821 /* StoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryTableViewCell.xib; path = Views/StoryTableViewCell.xib; sourceTree = "<group>"; };
+		5BF0D3AA1F6B534500698821 /* UIButton+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Block.h"; path = "Views/UIButton+Block.h"; sourceTree = "<group>"; };
+		5BF0D3AB1F6B534500698821 /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Block.m"; path = "Views/UIButton+Block.m"; sourceTree = "<group>"; };
 		63FDFA93CDA12FCA2F2E0832 /* libPods-HackerNewsReaderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackerNewsReaderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D91C4C247B2E07AF9FDBA16 /* Pods-HackerNewsReaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNewsReaderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackerNewsReaderTests/Pods-HackerNewsReaderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		99ED90B496F3B5D86F20409C /* libPods-HackerNewsReader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackerNewsReader.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +173,8 @@
 				5BF0D3A51F6AF48E00698821 /* StoryTableViewCell.h */,
 				5BF0D3A61F6AF48E00698821 /* StoryTableViewCell.m */,
 				5BF0D3A71F6AF48E00698821 /* StoryTableViewCell.xib */,
+				5BF0D3AA1F6B534500698821 /* UIButton+Block.h */,
+				5BF0D3AB1F6B534500698821 /* UIButton+Block.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 				5BF0D34A1F6A60F400698821 /* AppDelegate.m in Sources */,
 				5BF0D3961F6AC38400698821 /* NewsStory+CoreDataProperties.m in Sources */,
 				5BF0D3A81F6AF48E00698821 /* StoryTableViewCell.m in Sources */,
+				5BF0D3AC1F6B534500698821 /* UIButton+Block.m in Sources */,
 				5BF0D3871F6A78D500698821 /* NewsStoryViewController.m in Sources */,
 				5BF0D3901F6AC0F900698821 /* Model.xcdatamodeld in Sources */,
 				5BF0D37D1F6A6B0200698821 /* NewTopViewController.m in Sources */,

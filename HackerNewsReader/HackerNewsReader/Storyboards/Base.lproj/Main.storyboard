@@ -117,7 +117,13 @@
                             <outlet property="delegate" destination="Ir3-OK-qas" id="j64-0q-IC0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="News Reader" id="Kvx-gQ-4Wd"/>
+                    <navigationItem key="navigationItem" title="News Reader" id="Kvx-gQ-4Wd">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="htr-Jc-XBv">
+                            <connections>
+                                <action selector="refreshButtonPressed:" destination="Ir3-OK-qas" id="qob-Rn-92P"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="EeV-DP-sxi" kind="show" identifier="ShowNewsSegue" id="wbo-QX-yNJ"/>
                     </connections>
@@ -173,6 +179,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kr8-go-3Sr"/>
+        <segue reference="wbo-QX-yNJ"/>
     </inferredMetricsTieBreakers>
 </document>

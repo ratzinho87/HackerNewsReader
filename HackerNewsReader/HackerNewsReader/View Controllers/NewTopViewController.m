@@ -11,6 +11,7 @@
 #import "StoryTableViewCell.h"
 #import "NewsStoriesDataSource.h"
 #import "NewsStory+CoreDataClass.h"
+#import "UIButton+Block.h"
 
 @interface NewTopViewController () <StoryTableViewCellDelegate>
 
@@ -25,12 +26,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"StoryTableViewCell" bundle:nil] forCellReuseIdentifier:[StoryTableViewCell reuseIdentifier]];
     
     [self loadData];
-    
-    __weak typeof(self) weakSelf = self;
-    [[NewsStoriesDataSource sharedInstance] updateStories:^{
-        [weakSelf loadData];
-        [weakSelf.tableView reloadData];
-    }];
+    [self startRefreshData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,6 +53,18 @@
         [stories addObject:[NSArray<NewsStory *> array]];
     }
     self.stories = stories;
+}
+
+- (IBAction)refreshButtonPressed:(UIBarButtonItem *)sender {
+    [self startRefreshData];
+}
+
+- (void) startRefreshData {
+    __weak typeof(self) weakSelf = self;
+    [[NewsStoriesDataSource sharedInstance] updateStories:^{
+        [weakSelf loadData];
+        [weakSelf.tableView reloadData];
+    }];
 }
 
 #pragma mark - Table view data source
