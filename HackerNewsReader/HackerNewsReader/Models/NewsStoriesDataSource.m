@@ -37,6 +37,7 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
             NSLog(@"Failed to create persistent store. error: %@", error);
         }
     }];
+    self.updateLock = [[NSLock alloc] init];
     return self;
 }
 
@@ -107,13 +108,15 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
     [self.persistentContainer performBackgroundTask:^(NSManagedObjectContext * _Nonnull context) {
         [client fetchTopStories:^(NSArray<HackerNewsStory *> * _Nullable stories, NSError * _Nullable error) {
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isTop == 1"];
-            [self updateStoryListWithContext:context predicate:predicate newStories:stories setIsTopToYes:YES setIsNewToYes:NO];
+            NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"publishingTime" ascending:NO];
+            [self updateStoryListWithContext:context predicate:predicate sortDescriptor:sortDescriptor newStories:stories setIsTopToYes:YES setIsNewToYes:NO];
             [context save:nil];
             
             [self.persistentContainer performBackgroundTask:^(NSManagedObjectContext * _Nonnull context) {
                 [client fetchNewStories:^(NSArray<HackerNewsStory *> * _Nullable stories, NSError * _Nullable error) {
                     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isNew == 1"];
-                    [self updateStoryListWithContext:context predicate:predicate newStories:stories setIsTopToYes:NO setIsNewToYes:YES];
+                    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"publishingTime" ascending:NO];
+                    [self updateStoryListWithContext:context predicate:predicate sortDescriptor:sortDescriptor newStories:stories setIsTopToYes:NO setIsNewToYes:YES];
                     
                     // Cleanup: we don't show or use stories that are neither top, new or saved
                     NSFetchRequest<NewsStory *> *fetchRequestForOldStories = [NewsStory fetchRequest];
@@ -139,11 +142,12 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
 
 -(void)updateStoryListWithContext:(NSManagedObjectContext*)context
                         predicate:(NSPredicate*)predicate
+                   sortDescriptor:(NSSortDescriptor*)sortDescriptor
                        newStories:(NSArray<HackerNewsStory *> *)newStories
                        setIsTopToYes:(BOOL)isTop
                        setIsNewToYes:(BOOL)isNew {
     
-    NSArray<NewsStory *> *dbStories =  [[self fetchWithPredicate:predicate sortDescriptor:nil context:context] fetchedObjects];
+    NSArray<NewsStory *> *dbStories =  [[self fetchWithPredicate:predicate sortDescriptor:sortDescriptor context:context] fetchedObjects];
     // Transform to a dictionary, so we can easily retrieve stories by id
     NSMutableDictionary<NSString *, NewsStory *> *dbStoriesDict = [NSMutableDictionary<NSString *, NewsStory *> dictionary];
     for (NewsStory *dbStory in dbStories) {
