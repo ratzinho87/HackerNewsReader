@@ -17,6 +17,12 @@
 -(NSArray<NewsStory *>*)getNewStories;
 -(NSArray<NewsStory *>*)getSavedStories;
 
+-(void)saveStory:(NewsStory *)story;
+-(void)unsaveStory:(NewsStory *)story;
+
+-(void)markStoryAsRead:(NewsStory *)story;
+-(void)markStoryAsUnread:(NewsStory *)story;
+
 -(void)updateStories:(nullable void (^)())completionHandler;
 
 @end

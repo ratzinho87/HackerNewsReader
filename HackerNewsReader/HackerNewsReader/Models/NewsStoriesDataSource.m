@@ -58,6 +58,25 @@
 }
 
 
+-(void)saveStory:(NewsStory *)story {
+    story.isSaved = YES;
+    [self.persistentContainer.viewContext save:nil];
+}
+
+-(void)unsaveStory:(NewsStory *)story {
+    story.isSaved = NO;
+    [self.persistentContainer.viewContext save:nil];
+}
+
+-(void)markStoryAsRead:(NewsStory *)story {
+    story.isRead = YES;
+    [self.persistentContainer.viewContext save:nil];
+}
+
+-(void)markStoryAsUnread:(NewsStory *)story {
+    story.isRead = NO;
+    [self.persistentContainer.viewContext save:nil];
+}
 
 -(void)updateStories:(nullable void (^)())completionHandler {
     HackerNewsApiClient *client = [[HackerNewsApiClient alloc] initWithBaseUri:@"https://hacker-news.firebaseio.com/v0/"];
@@ -133,8 +152,6 @@
             dbStory.isNew = NO;
         }
     }
-    
-
 }
 
 -(void)updateStory:(NewsStory*)dbStory with:(HackerNewsStory*)story {

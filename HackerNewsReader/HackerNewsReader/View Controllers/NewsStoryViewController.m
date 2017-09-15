@@ -7,6 +7,7 @@
 //
 
 #import "NewsStoryViewController.h"
+#import "NewsStoriesDataSource.h"
 
 @interface NewsStoryViewController ()
 
@@ -20,7 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = self.story.title;
     self.uriTextField.text = self.story.url;
     [self.newsStoryWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.story.url]]];
     self.saveButton.enabled = !self.story.isSaved;
@@ -32,6 +34,9 @@
 }
 
 - (IBAction)save:(UIBarButtonItem *)sender {
+    [[NewsStoriesDataSource sharedInstance] saveStory:self.story];
+    // TODO: show popup?
+    self.saveButton.enabled = NO;
 }
 
 

@@ -12,7 +12,7 @@
 #import "NewsStoriesDataSource.h"
 #import "NewsStory+CoreDataClass.h"
 
-@interface NewTopViewController ()
+@interface NewTopViewController () <StoryTableViewCellDelegate>
 
 @property (strong) NSArray<NSArray<NewsStory *>*> *stories;
 
@@ -88,28 +88,50 @@
     StoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[StoryTableViewCell reuseIdentifier] forIndexPath:indexPath];
     
     if (cell != nil) {
-        [cell configureWith:self.stories[indexPath.section][indexPath.row]];
+        cell.delegate = self;
+        [cell configureWith:self.stories[indexPath.section][indexPath.row] at:indexPath];
     }
     
     return cell;
 }
 
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NewsStory *story = self.stories[indexPath.section][indexPath.row];
+    __weak typeof(self) weakSelf = self;
     UITableViewRowAction *saveAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
-                                                                          title:@"Save"
+                                                                          title:story.isSaved ? @"Unsave" : @"Save"
                                                                         handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-                                                                            NewsStory *story = self.stories[indexPath.section][indexPath.row];
-                                                                            story.isSaved = YES;
-                                                                            // TODO: save
-                                                                            [self.tableView reloadRowsAtIndexPaths:[NSArray<NSIndexPath *> arrayWithObject:indexPath]
-                                                                                                  withRowAnimation:YES];
-    }];
+                                                                            if(weakSelf != nil) {
+                                                                                typeof(self) strongSelf = weakSelf;
+                                                                                NewsStory *story = strongSelf.stories[indexPath.section][indexPath.row];
+                                                                                if (story.isSaved) {
+                                                                                    [[NewsStoriesDataSource sharedInstance] unsaveStory:story];
+                                                                                } else {
+                                                                                    [[NewsStoriesDataSource sharedInstance] saveStory:story];
+                                                                                }
+                                                                                
+                                                                                [strongSelf.tableView reloadRowsAtIndexPaths:[NSArray<NSIndexPath *> arrayWithObject:indexPath]
+                                                                                                            withRowAnimation:YES];
+                                                                            }
+                                                                        }];
     
     return [NSArray<UITableViewRowAction *> arrayWithObject:saveAction];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     // This method must be implemented in order for the row swipe to work
+}
+
+-(void)didPressMarkAsReadOn:(NSIndexPath *)indexPath {
+    NewsStory *story = self.stories[indexPath.section][indexPath.row];
+    if (story.isRead) {
+        [[NewsStoriesDataSource sharedInstance] markStoryAsUnread:story];
+    } else {
+        [[NewsStoriesDataSource sharedInstance] markStoryAsRead:story];
+    }
+    
+    [self.tableView reloadRowsAtIndexPaths:[NSArray<NSIndexPath *> arrayWithObject:indexPath]
+                                withRowAnimation:NO];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

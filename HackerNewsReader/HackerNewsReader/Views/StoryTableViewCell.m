@@ -26,12 +26,20 @@
     // Configure the view for the selected state
 }
 
--(void)configureWith:(NewsStory*)story {
+-(void)configureWith:(NewsStory*)story at:(NSIndexPath *)indexPath {
+    self.indexPath = indexPath;
+    
     self.titleLabel.text = story.title;
     self.publishingTimeLabel.text = [NSString stringWithFormat:@"%@", story.publishingTime];
     
     UIImage *readImage = story.isRead ? [UIImage imageNamed:@"flag_filled"] : [UIImage imageNamed:@"flag_empty"];
     [self.markAsReadButton setImage:readImage forState:UIControlStateNormal];
+}
+
+- (IBAction)markAsReadButtonPressed:(UIButton *)sender {
+    if (self.delegate != nil) {
+        [self.delegate didPressMarkAsReadOn:self.indexPath];
+    }
 }
 
 @end

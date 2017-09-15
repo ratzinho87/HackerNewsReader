@@ -104,30 +104,20 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--New Top View Controller-->
+        <!--News Reader-->
         <scene sceneID="cuj-bC-p5G">
             <objects>
-                <tableViewController id="Ir3-OK-qas" customClass="NewTopViewController" sceneMemberID="viewController">
+                <tableViewController title="News Reader" id="Ir3-OK-qas" customClass="NewTopViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dbr-rv-cZK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="y1g-DF-931">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y1g-DF-931" id="13n-QZ-Occ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Ir3-OK-qas" id="HT1-o9-cTi"/>
                             <outlet property="delegate" destination="Ir3-OK-qas" id="j64-0q-IC0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Kvx-gQ-4Wd"/>
+                    <navigationItem key="navigationItem" title="News Reader" id="Kvx-gQ-4Wd"/>
                     <connections>
                         <segue destination="EeV-DP-sxi" kind="show" identifier="ShowNewsSegue" id="wbo-QX-yNJ"/>
                     </connections>
@@ -136,30 +126,20 @@
             </objects>
             <point key="canvasLocation" x="1562" y="-321"/>
         </scene>
-        <!--Saved For Later View Controller-->
+        <!--News Reader-->
         <scene sceneID="r8F-Jz-fPo">
             <objects>
-                <tableViewController id="0fu-mz-2V3" customClass="SavedForLaterViewController" sceneMemberID="viewController">
+                <tableViewController title="News Reader" id="0fu-mz-2V3" customClass="SavedForLaterViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ktd-l2-QRN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sdw-aZ-Tuv">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sdw-aZ-Tuv" id="M33-KF-886">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="0fu-mz-2V3" id="eIN-Pv-q9o"/>
                             <outlet property="delegate" destination="0fu-mz-2V3" id="hxy-3a-3fu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="WLG-rW-MGt"/>
+                    <navigationItem key="navigationItem" title="News Reader" id="WLG-rW-MGt"/>
                     <connections>
                         <segue destination="EeV-DP-sxi" kind="show" identifier="ShowNewsSegue" id="Kr8-go-3Sr"/>
                     </connections>
@@ -193,6 +173,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wbo-QX-yNJ"/>
+        <segue reference="Kr8-go-3Sr"/>
     </inferredMetricsTieBreakers>
 </document>
