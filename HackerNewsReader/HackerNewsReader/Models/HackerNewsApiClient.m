@@ -45,7 +45,7 @@
                 NSArray *responseArray = responseObject;
                 for (NSNumber *identifier in responseArray) {
                     HackerNewsStory *story = [self fetchStoryWith:[identifier stringValue]];
-                    if (story != nil) {
+                    if (story != nil && [story.type isEqualToString:@"story"]) {
                         [stories addObject:story];
                         
                         if (stories.count == limit) {
