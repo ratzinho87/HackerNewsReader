@@ -12,6 +12,7 @@
 #import "NewsStoriesDataSource.h"
 #import "NewsStory+CoreDataClass.h"
 #import "UIButton+Block.h"
+#import "UITableView+NSFetchedResultsController.h"
 
 @interface NewTopViewController () <StoryTableViewCellDelegate, NSFetchedResultsControllerDelegate>
 
@@ -147,12 +148,22 @@ static NSString *const ShowNewsSegueIdentifier = @"ShowNewsSegue";
 
 -(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
     
-    if (type == NSFetchedResultsChangeUpdate) {
+    /*if (type == NSFetchedResultsChangeUpdate) {
         NSIndexPath *tableIndexPath = [NSIndexPath indexPathForRow:indexPath.row
                                                          inSection:[self.stories indexOfObject:controller]];
         [self.tableView reloadRowsAtIndexPaths:[NSArray<NSIndexPath *> arrayWithObject:tableIndexPath]
                               withRowAnimation:NO];
-    }
+    }*/
+    
+    NSIndexPath *tableIndexPath = [NSIndexPath indexPathForRow:indexPath.row
+                                                     inSection:[self.stories indexOfObject:controller]];
+    NSIndexPath *newTableIndexPath = [NSIndexPath indexPathForRow:newIndexPath.row
+                                                     inSection:[self.stories indexOfObject:controller]];
+    [self.tableView addChangeForObjectAtIndexPath:tableIndexPath forChangeType:type newIndexPath:newTableIndexPath];
+}
+
+-(void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView commitChanges];
 }
 
  #pragma mark - Navigation

@@ -10,6 +10,7 @@
 #import "NewsStoriesDataSource.h"
 #import "StoryTableViewCell.h"
 #import "NewsStoryViewController.h"
+#import "UITableView+NSFetchedResultsController.h"
 
 @interface SavedForLaterViewController () <StoryTableViewCellDelegate, NSFetchedResultsControllerDelegate>
 
@@ -107,10 +108,11 @@ static NSString *const ShowNewsSegueIdentifier = @"ShowNewsSegue";
 #pragma mark - NSFetchedResultsControllerDelegate
 
 -(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-    if (type == NSFetchedResultsChangeUpdate) {
-        [self.tableView reloadRowsAtIndexPaths:[NSArray<NSIndexPath *> arrayWithObject:indexPath]
-                              withRowAnimation:NO];
-    }
+    [self.tableView addChangeForObjectAtIndexPath:indexPath forChangeType:type newIndexPath:newIndexPath];
+}
+
+-(void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView commitChanges];
 }
 
 #pragma mark - Navigation
