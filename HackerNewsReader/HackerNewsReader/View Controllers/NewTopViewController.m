@@ -157,6 +157,9 @@
      if ([segue.identifier  isEqual: @"ShowNewsSegue"] && [sender isKindOfClass:[NewsStory class]]) {
          NewsStoryViewController *destination = [segue destinationViewController];
          destination.story = (NewsStory*)sender;
+         if (!destination.story.isRead) {
+             [[NewsStoriesDataSource sharedInstance] markStoryAsRead:destination.story];
+         }
      }
  }
 
