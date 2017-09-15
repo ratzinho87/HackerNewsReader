@@ -11,7 +11,7 @@
 
 @interface HackerNewsApiClient : NSObject
 
--(instancetype)initWithBaseUri:(NSString*)uri;
+-(nonnull instancetype)initWithBaseUri:(nonnull NSString *)uri;
 
 -(void)fetchTopStories:(nullable void (^)(NSArray<HackerNewsStory *>* _Nullable, NSError * _Nullable))completionHandler;
 -(void)fetchNewStories:(nullable void (^)(NSArray<HackerNewsStory *>* _Nullable, NSError * _Nullable))completionHandler;

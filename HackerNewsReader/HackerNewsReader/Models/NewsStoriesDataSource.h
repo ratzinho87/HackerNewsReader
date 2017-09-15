@@ -9,21 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "NewsStory+CoreDataClass.h"
 
-extern NSString *const SavedStoriesChangedNotification;
+extern NSString * __nonnull const SavedStoriesChangedNotification;
 
 @interface NewsStoriesDataSource : NSObject
 
-+(instancetype)sharedInstance;
++(nonnull instancetype)sharedInstance;
 
--(NSFetchedResultsController<NewsStory *>*)getTopStories;
--(NSFetchedResultsController<NewsStory *>*)getNewStories;
--(NSFetchedResultsController<NewsStory *>*)getSavedStories;
+-(nullable NSFetchedResultsController<NewsStory *>*)getTopStories;
+-(nullable NSFetchedResultsController<NewsStory *>*)getNewStories;
+-(nullable NSFetchedResultsController<NewsStory *>*)getSavedStories;
 
--(void)saveStory:(NewsStory *)story;
--(void)unsaveStory:(NewsStory *)story;
+-(void)saveStory:(nonnull NewsStory *)story;
+-(void)unsaveStory:(nonnull NewsStory *)story;
 
--(void)markStoryAsRead:(NewsStory *)story;
--(void)markStoryAsUnread:(NewsStory *)story;
+-(void)markStoryAsRead:(nonnull NewsStory *)story;
+-(void)markStoryAsUnread:(nonnull NewsStory *)story;
 
 -(void)updateStories:(nullable void (^)())completionHandler;
 
