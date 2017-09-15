@@ -18,8 +18,11 @@
 @implementation HackerNewsApiClient
 
 -(instancetype)initWithBaseUri:(NSString*)uri {
-    _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:uri]];
-    _manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    self = [super init];
+    if (self) {
+        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:uri]];
+        _manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    }
     return self;
 }
 
