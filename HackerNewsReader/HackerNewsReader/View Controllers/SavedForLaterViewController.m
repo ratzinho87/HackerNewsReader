@@ -16,8 +16,6 @@
 
 @property (strong) NSFetchedResultsController<NewsStory *> *stories;
 
--(void)handleSavedStoriesChanged:(NSNotification*)notification;
-
 @end
 
 @implementation SavedForLaterViewController
@@ -27,8 +25,6 @@ static NSString *const ShowNewsSegueIdentifier = @"ShowNewsSegue";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([StoryTableViewCell class]) bundle:nil] forCellReuseIdentifier:[StoryTableViewCell reuseIdentifier]];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSavedStoriesChanged:) name:SavedStoriesChangedNotification object:nil];
     
     [self loadData];    
 }
@@ -41,13 +37,6 @@ static NSString *const ShowNewsSegueIdentifier = @"ShowNewsSegue";
 -(void)loadData {
     self.stories = [[NewsStoriesDataSource sharedInstance] getSavedStories];
     self.stories.delegate = self;
-}
-
--(void)handleSavedStoriesChanged:(NSNotification*)notification {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self loadData];
-        [self.tableView reloadData];
-    });
 }
 
 #pragma mark - Table view data source

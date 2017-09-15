@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "NewsStory+CoreDataClass.h"
 
-extern NSString * __nonnull const SavedStoriesChangedNotification;
-
 @interface NewsStoriesDataSource : NSObject
 
 +(nonnull instancetype)sharedInstance;
