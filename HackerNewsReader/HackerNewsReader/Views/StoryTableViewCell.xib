@@ -16,41 +16,41 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-rG-8y9">
                         <rect key="frame" x="2" y="2" width="316" height="39.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R2V-wN-hBR">
-                                <rect key="frame" x="0.0" y="0.0" width="39.5" height="39.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="39" height="39.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="R2V-wN-hBR" secondAttribute="height" multiplier="1:1" id="v6Q-1e-XOI"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aCZ-qW-pwo">
-                                <rect key="frame" x="43.5" y="0.0" width="229" height="39.5"/>
+                                <rect key="frame" x="43" y="0.0" width="245" height="39.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWq-3Y-i3g">
-                                        <rect key="frame" x="0.0" y="0.0" width="229" height="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="245" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ow1-gB-LSy">
-                                        <rect key="frame" x="0.0" y="18" width="229" height="21.5"/>
+                                        <rect key="frame" x="0.0" y="18" width="245" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmj-fu-sw1">
-                                <rect key="frame" x="276.5" y="0.0" width="39.5" height="39.5"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmj-fu-sw1">
+                                <rect key="frame" x="292" y="0.0" width="24" height="39.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="cmj-fu-sw1" secondAttribute="height" multiplier="1:1" id="Wwx-fw-whY"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="24" id="J3q-Ue-3yi"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="second"/>
+                                <state key="normal" image="flag_empty"/>
                                 <connections>
                                     <action selector="markAsReadButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oYe-3N-XEY"/>
                                 </connections>
@@ -74,6 +74,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="second" width="30" height="30"/>
+        <image name="flag_empty" width="25" height="25"/>
     </resources>
 </document>
