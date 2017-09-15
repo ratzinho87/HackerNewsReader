@@ -32,6 +32,7 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
 
 -(instancetype)init {
     self.persistentContainer = [NSPersistentContainer persistentContainerWithName:@"Model"];
+    self.persistentContainer.viewContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy;
     [self.persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription * _Nonnull storeDescription, NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Failed to create persistent store. error: %@", error);
@@ -77,24 +78,32 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
 
 -(void)saveStory:(NewsStory *)story {
     story.isSaved = YES;
-    [self.persistentContainer.viewContext save:nil];
+    [self saveContext:self.persistentContainer.viewContext];
     [[NSNotificationCenter defaultCenter] postNotificationName:SavedStoriesChangedNotification object:story];
 }
 
 -(void)unsaveStory:(NewsStory *)story {
     story.isSaved = NO;
-    [self.persistentContainer.viewContext save:nil];
+    [self saveContext:self.persistentContainer.viewContext];
     [[NSNotificationCenter defaultCenter] postNotificationName:SavedStoriesChangedNotification object:story];
 }
 
 -(void)markStoryAsRead:(NewsStory *)story {
     story.isRead = YES;
-    [self.persistentContainer.viewContext save:nil];
+    [self saveContext:self.persistentContainer.viewContext];
 }
 
 -(void)markStoryAsUnread:(NewsStory *)story {
     story.isRead = NO;
-    [self.persistentContainer.viewContext save:nil];
+    [self saveContext:self.persistentContainer.viewContext];
+}
+
+-(void)saveContext:(NSManagedObjectContext *)context {
+    NSError *saveError = nil;
+    [context save:&saveError];
+    if (saveError != nil) {
+        NSLog(@"Failed to save context %@. error(domain: %@, code:%ld, info:%@)", context.name, saveError.domain, (long)saveError.code, saveError.userInfo);
+    }
 }
 
 -(void)updateStories:(nullable void (^)())completionHandler {    ;
@@ -125,7 +134,7 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isTop == 1"];
             NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"publishingTime" ascending:NO];
             [self updateStoryListWithContext:context predicate:predicate sortDescriptor:sortDescriptor newStories:stories setIsTopToYes:YES setIsNewToYes:NO];
-            [context save:nil];
+            [self saveContext:context];
             
             [self.persistentContainer performBackgroundTask:^(NSManagedObjectContext * _Nonnull context) {
                 [client fetchNewStories:^(NSArray<HackerNewsStory *> * _Nullable stories, NSError * _Nullable error) {
@@ -146,8 +155,9 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
                     
                     for (NewsStory *oldStory in oldStories) {
                         [context deleteObject:oldStory];
-                    }                    
-                    [context save:nil];
+                    }
+                    
+                    [self saveContext:context];
                     
                     completion();
                 }];
