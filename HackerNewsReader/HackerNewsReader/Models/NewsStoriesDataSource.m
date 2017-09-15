@@ -105,8 +105,23 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
     
     HackerNewsApiClient *client = [[HackerNewsApiClient alloc] initWithBaseUri:@"https://hacker-news.firebaseio.com/v0/"];
     
+    void(^completion)() = ^{
+        dispatch_semaphore_signal(self.updateSemaphore);
+        if (completionHandler != nil) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler();
+            });
+        }
+    };
+    
     [self.persistentContainer performBackgroundTask:^(NSManagedObjectContext * _Nonnull context) {
         [client fetchTopStories:^(NSArray<HackerNewsStory *> * _Nullable stories, NSError * _Nullable error) {
+            if (stories == nil || error != nil) {
+                NSLog(@"Got error while fetching top stories. error=%@", error);
+                completion();
+                return;
+            }
+            
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isTop == 1"];
             NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"publishingTime" ascending:NO];
             [self updateStoryListWithContext:context predicate:predicate sortDescriptor:sortDescriptor newStories:stories setIsTopToYes:YES setIsNewToYes:NO];
@@ -114,6 +129,12 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
             
             [self.persistentContainer performBackgroundTask:^(NSManagedObjectContext * _Nonnull context) {
                 [client fetchNewStories:^(NSArray<HackerNewsStory *> * _Nullable stories, NSError * _Nullable error) {
+                    if (stories == nil || error != nil) {
+                        NSLog(@"Got error while fetching new stories. error=%@", error);
+                        completion();
+                        return;
+                    }
+                    
                     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isNew == 1"];
                     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"publishingTime" ascending:NO];
                     [self updateStoryListWithContext:context predicate:predicate sortDescriptor:sortDescriptor newStories:stories setIsTopToYes:NO setIsNewToYes:YES];
@@ -128,12 +149,7 @@ NSString *const SavedStoriesChangedNotification = @"SavedStoriesChanged";
                     }                    
                     [context save:nil];
                     
-                    dispatch_semaphore_signal(self.updateSemaphore);
-                    if (completionHandler != nil) {
-                        dispatch_async(dispatch_get_main_queue(), ^{                            
-                            completionHandler();
-                        });
-                    }
+                    completion();
                 }];
             }];
         }];
