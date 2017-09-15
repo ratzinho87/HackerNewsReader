@@ -14,6 +14,17 @@
     return @"StoryTableViewCellReuseIdentifier";
 }
 
++(NSDateFormatter *)dateFormatter {
+    static NSDateFormatter *instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[NSDateFormatter alloc] init];
+        [instance setDateStyle:NSDateFormatterMediumStyle];
+        [instance setTimeStyle:NSDateFormatterMediumStyle];
+    });
+    return instance;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     
@@ -30,7 +41,7 @@
     self.indexPath = indexPath;
     
     self.titleLabel.text = story.title;
-    self.publishingTimeLabel.text = [NSString stringWithFormat:@"%@", story.publishingTime];
+    self.publishingTimeLabel.text = [[StoryTableViewCell dateFormatter] stringFromDate:story.publishingTime];
     
     UIImage *readImage = story.isRead ? [UIImage imageNamed:@"flag_filled"] : [UIImage imageNamed:@"flag_empty"];
     [self.markAsReadButton setImage:readImage forState:UIControlStateNormal];
