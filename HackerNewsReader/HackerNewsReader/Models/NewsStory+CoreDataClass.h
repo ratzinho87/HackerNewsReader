@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NewsStory : NSManagedObject
 
+@property (nonatomic, readonly) NSURL *domainIconUri;
+
 @end
 
 NS_ASSUME_NONNULL_END

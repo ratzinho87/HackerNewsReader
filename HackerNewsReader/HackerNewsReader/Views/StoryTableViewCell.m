@@ -7,6 +7,7 @@
 //
 
 #import "StoryTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation StoryTableViewCell
 
@@ -31,6 +32,10 @@
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
+-(void)prepareForReuse {
+    [self.logoImageView sd_cancelCurrentAnimationImagesLoad];
+}
+
 -(void)configureWith:(NewsStory*)story at:(NSIndexPath *)indexPath {
     self.indexPath = indexPath;
     
@@ -39,6 +44,8 @@
     
     UIImage *readImage = story.isRead ? [UIImage imageNamed:@"flag_filled"] : [UIImage imageNamed:@"flag_empty"];
     [self.markAsReadButton setImage:readImage forState:UIControlStateNormal];
+    
+    [self.logoImageView sd_setImageWithURL:story.domainIconUri];
 }
 
 - (IBAction)markAsReadButtonPressed:(UIButton *)sender {
