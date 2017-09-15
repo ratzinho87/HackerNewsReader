@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) NSPersistentContainer *persistentContainer;
 
+@property (nonatomic, strong) NSLock *updateLock;
+
 @end
 
 @implementation NewsStoriesDataSource
@@ -87,6 +89,11 @@
 }
 
 -(void)updateStories:(nullable void (^)())completionHandler {
+    if (![self.updateLock tryLock]) {
+        NSLog(@"Update already in progress, so skipping.");
+        return;
+    }
+    
     HackerNewsApiClient *client = [[HackerNewsApiClient alloc] initWithBaseUri:@"https://hacker-news.firebaseio.com/v0/"];
     
     [self.persistentContainer performBackgroundTask:^(NSManagedObjectContext * _Nonnull context) {
@@ -110,6 +117,7 @@
                     }                    
                     [context save:nil];
                     
+                    [self.updateLock unlock];
                     if (completionHandler != nil) {
                         dispatch_async(dispatch_get_main_queue(), ^{                            
                             completionHandler();
