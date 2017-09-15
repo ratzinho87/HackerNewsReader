@@ -21,10 +21,11 @@
 
 @implementation SavedForLaterViewController
 
+static NSString *const ShowNewsSegueIdentifier = @"ShowNewsSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerNib:[UINib nibWithNibName:@"StoryTableViewCell" bundle:nil] forCellReuseIdentifier:[StoryTableViewCell reuseIdentifier]];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([StoryTableViewCell class]) bundle:nil] forCellReuseIdentifier:[StoryTableViewCell reuseIdentifier]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSavedStoriesChanged:) name:SavedStoriesChangedNotification object:nil];
     
@@ -93,14 +94,11 @@
     } else {
         [[NewsStoriesDataSource sharedInstance] markStoryAsRead:story];
     }
-    
-    [self.tableView reloadRowsAtIndexPaths:[NSArray<NSIndexPath *> arrayWithObject:indexPath]
-                          withRowAnimation:NO];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NewsStory *story = [self.stories objectAtIndexPath:indexPath];
-    [self performSegueWithIdentifier:@"ShowNewsSegue" sender:story];
+    [self performSegueWithIdentifier:ShowNewsSegueIdentifier sender:story];
     
     // Don't leave the row selected, so it can be tapped again
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -118,7 +116,7 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier  isEqual: @"ShowNewsSegue"] && [sender isKindOfClass:[NewsStory class]]) {
+    if ([segue.identifier  isEqual: ShowNewsSegueIdentifier] && [sender isKindOfClass:[NewsStory class]]) {
         NewsStoryViewController *destination = [segue destinationViewController];
         destination.story = (NewsStory*)sender;
         if (!destination.story.isRead) {
