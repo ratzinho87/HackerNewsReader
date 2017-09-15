@@ -54,7 +54,7 @@ static NSString *const ShowNewsSegueIdentifier = @"ShowNewsSegue";
     
     if (cell != nil) {
         cell.delegate = self;
-        [cell configureWith:[self.stories objectAtIndexPath:indexPath] at:indexPath];
+        [cell configureWith:[self.stories objectAtIndexPath:indexPath]];
     }
     
     return cell;
@@ -77,8 +77,7 @@ static NSString *const ShowNewsSegueIdentifier = @"ShowNewsSegue";
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
--(void)didPressMarkAsReadOn:(NSIndexPath *)indexPath {
-    NewsStory *story = [self.stories objectAtIndexPath:indexPath];
+-(void)didPressMarkAsReadOn:(NewsStory *)story {
     if (story.isRead) {
         [[NewsStoriesDataSource sharedInstance] markStoryAsUnread:story];
     } else {

@@ -36,8 +36,8 @@
     [self.logoImageView sd_cancelCurrentAnimationImagesLoad];
 }
 
--(void)configureWith:(NewsStory*)story at:(NSIndexPath *)indexPath {
-    self.indexPath = indexPath;
+-(void)configureWith:(NewsStory*)story {
+    self.story = story;
     
     self.titleLabel.text = story.title;
     self.publishingTimeLabel.text = [[StoryTableViewCell dateFormatter] stringFromDate:story.publishingTime];
@@ -50,7 +50,7 @@
 
 - (IBAction)markAsReadButtonPressed:(UIButton *)sender {
     if (self.delegate != nil) {
-        [self.delegate didPressMarkAsReadOn:self.indexPath];
+        [self.delegate didPressMarkAsReadOn:self.story];
     }
 }
 

@@ -91,7 +91,7 @@ static NSString *const ShowNewsSegueIdentifier = @"ShowNewsSegue";
     
     if (cell != nil) {
         cell.delegate = self;
-        [cell configureWith:[self getStoryAt:indexPath] at:indexPath];
+        [cell configureWith:[self getStoryAt:indexPath]];
     }
     
     return cell;
@@ -127,8 +127,7 @@ static NSString *const ShowNewsSegueIdentifier = @"ShowNewsSegue";
     // This method must be implemented in order for the row swipe to work
 }
 
--(void)didPressMarkAsReadOn:(NSIndexPath *)indexPath {
-    NewsStory *story = [self getStoryAt:indexPath];
+-(void)didPressMarkAsReadOn:(NewsStory *)story {
     if (story.isRead) {
         [[NewsStoriesDataSource sharedInstance] markStoryAsUnread:story];
     } else {

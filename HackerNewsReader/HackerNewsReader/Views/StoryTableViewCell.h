@@ -11,7 +11,7 @@
 
 @protocol StoryTableViewCellDelegate <NSObject>
 
--(void)didPressMarkAsReadOn:(NSIndexPath *)indexPath;
+-(void)didPressMarkAsReadOn:(NewsStory *)story;
 
 @end
 
@@ -19,7 +19,7 @@
 
 +(NSString *)reuseIdentifier;
 
-@property (strong, nonatomic) NSIndexPath *indexPath;
+@property (strong, nonatomic) NewsStory *story;
 
 @property (weak, nonatomic) id<StoryTableViewCellDelegate> delegate;
 
@@ -28,6 +28,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *publishingTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *markAsReadButton;
 
--(void)configureWith:(NewsStory*)story at:(NSIndexPath *)indexPath;
+-(void)configureWith:(NewsStory*)story;
 
 @end
