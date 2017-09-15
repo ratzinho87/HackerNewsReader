@@ -6,6 +6,7 @@ target 'HackerNewsReader' do
   # Pods for HackerNewsReader
   pod 'AFNetworking', '~>3.0'
   pod 'SDWebImage', '~>4.0'
+  pod 'UITableView+NSFetchedResultsController'
 
   target 'HackerNewsReaderTests' do
     inherit! :search_paths

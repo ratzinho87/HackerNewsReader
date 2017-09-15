@@ -17,15 +17,18 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - UITableView+NSFetchedResultsController (1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - SDWebImage (~> 4.0)
+  - UITableView+NSFetchedResultsController
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  UITableView+NSFetchedResultsController: 4dbe639219ec2261da75e310508b98f9d2b250d3
 
-PODFILE CHECKSUM: a4d2da3f44ade15e8c5605c9c2d1e65953e97412
+PODFILE CHECKSUM: 63e6c1897ed1ac64fdb33ed359161a51688c9ca3
 
 COCOAPODS: 1.1.1
